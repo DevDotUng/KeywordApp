@@ -22,7 +22,6 @@ class _CustomGridViewState extends State<CustomGridView> {
     for (int i = 0; i < widget.screenshotByRole.screenshots.length; i++) {
       groupBox[i % 2].add(i);
     }
-    print(groupBox);
     super.initState();
   }
 
@@ -35,7 +34,7 @@ class _CustomGridViewState extends State<CustomGridView> {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             widget.screenshotByRole.role,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),

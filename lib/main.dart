@@ -4,6 +4,7 @@ import 'package:keyword/bindings/base_bindings.dart';
 import 'package:keyword/pages/detail.dart';
 import 'package:keyword/pages/home.dart';
 import 'package:keyword/pages/screenshot_list.dart';
+import 'package:keyword/pages/splash.dart';
 
 void main() {
   runApp(GetMaterialApp(
@@ -11,8 +12,12 @@ void main() {
     getPages: [
       GetPage(
         name: '/',
-        page: () => Home(),
+        page: () => Splash(),
         binding: BaseBindings(),
+      ),
+      GetPage(
+        name: '/home',
+        page: () => Home(),
       ),
       GetPage(
         name: '/screenshotList',

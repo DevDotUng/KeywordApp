@@ -6,15 +6,9 @@ class HomeController extends GetxController {
   int count = 0;
   List<HomeResult> list = [];
 
-  @override
-  void onInit() {
-    _loadApps();
-    super.onInit();
-  }
-
-  void _loadApps() async {
+  Future<void> loadApps() async {
     List<HomeResult> homeAppResultList = await HomeRepository().getHomeView();
-    if (homeAppResultList != null && homeAppResultList.isNotEmpty) {
+    if (homeAppResultList.isNotEmpty) {
       list = homeAppResultList;
       count = list.length;
     }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:keyword/controller/home_controller.dart';
 
-class Home extends GetView<HomeController> {
+class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
   final _controller = Get.put(HomeController());
@@ -16,22 +16,29 @@ class Home extends GetView<HomeController> {
         arguments: _controller.list[index].appInfo.id);
   }
 
+  Future<void> _onRefresh() {
+    return _controller.loadApps();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appbar(),
       body: GetBuilder<HomeController>(
-        builder: (_) => ListView.builder(
-          itemCount: _controller.count,
-          itemBuilder: (context, index) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _appInfo(index),
-                _appScreenshotList(index),
-              ],
-            );
-          },
+        builder: (_) => RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: ListView.builder(
+            itemCount: _controller.count,
+            itemBuilder: (context, index) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _appInfo(index),
+                  _appScreenshotList(index),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

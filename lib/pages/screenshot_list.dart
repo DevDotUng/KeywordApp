@@ -21,19 +21,20 @@ class ScreenshotList extends GetView<ScreenshotListController> {
               _appInfo(),
               Container(
                 child: ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: _controller.result == null
-                        ? 0
-                        : _controller.result!.screenshotsByRole.length,
-                    itemBuilder: (context, index) {
-                      return _controller.result == null
-                          ? Container()
-                          : CustomGridView(
-                              index: index,
-                              screenshotByRole:
-                                  _controller.result!.screenshotsByRole[index]);
-                    }),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: _controller.result == null
+                      ? 0
+                      : _controller.result!.screenshotsByRole.length,
+                  itemBuilder: (context, index) {
+                    return _controller.result == null
+                        ? Container()
+                        : CustomGridView(
+                            index: index,
+                            screenshotByRole:
+                                _controller.result!.screenshotsByRole[index]);
+                  },
+                ),
               ),
             ],
           ),

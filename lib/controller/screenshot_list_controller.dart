@@ -14,11 +14,11 @@ class ScreenshotListController extends GetxController {
 
   @override
   void onInit() {
-    _loadScreenshots(applicationId);
+    loadScreenshots(applicationId);
     super.onInit();
   }
 
-  void _loadScreenshots(int applicationId) async {
+  Future<void> loadScreenshots(int applicationId) async {
     result =
         await ScreenshotListRepository().getScreenshotListView(applicationId);
     update();
