@@ -12,7 +12,7 @@ class Detail extends StatefulWidget {
 }
 
 class _DetailState extends State<Detail> {
-  final _controller = Get.put(DetailController(applicationId: 17));
+  final _controller = Get.put(DetailController(applicationId: Get.arguments));
 
   List<String> _dropdownList = ['Flutter', 'Android', 'iOS', 'RN'];
   String dropdownValue = 'Flutter';
